@@ -1,13 +1,13 @@
 {
     "editor.formatOnSave": true,
-    "json.schemas": [
-        {
-            "fileMatch": [
-                "*.DataConnectorDefinition.json"
-            ],
-            "url": "./schema.json"
-        }
-    ]
+    // "json.schemas": [
+    //     {
+    //         "fileMatch": [
+    //             "*.DataConnectorDefinition.json"
+    //         ],
+    //         "url": "./schema.json"
+    //     }
+    // ]
 }
 // {
 //   "json.schemas": [

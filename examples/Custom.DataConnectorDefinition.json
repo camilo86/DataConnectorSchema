@@ -1,5 +1,5 @@
 {
-    "id": "CustomDataConnector",
+    "$schema": "../schema.json""id": "CustomDataConnector",
     "name": "CustomDataConnector",
     "apiVersion": "2022-09-01-preview",
     "type": "Microsoft.SecurityInsights/dataConnectorDefinitions",
@@ -23,7 +23,8 @@
                 {
                     "name": "CustomDataType",
                     "lastDataReceivedQuery": "CustomDataTable | summarize by count()"
-                }
+                },
+                {}
             ],
             "sampleQueries": [
                 {
