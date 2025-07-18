@@ -1,0 +1,195 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "apiVersion": {
+            "enum": [
+                "2022-09-01-preview"
+            ]
+        },
+        "type": {
+            "enum": [
+                "Microsoft.SecurityInsights/dataConnectorDefinitions"
+            ]
+        },
+        "location": {
+            "enum": [
+                "{{location}}"
+            ]
+        },
+        "kind": {
+            "enum": [
+                "Customizable"
+            ]
+        },
+        "properties": {
+            "properties": {
+                "connectorUiConfig": {
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "title": {
+                            "type": "string"
+                        },
+                        "publisher": {
+                            "type": "string"
+                        },
+                        "descriptionMarkdown": {
+                            "type": "string"
+                        },
+                        "graphQueriesTableName": {
+                            "type": "string"
+                        },
+                        "graphQueries": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "metricName": {
+                                        "type": "string"
+                                    },
+                                    "legend": {
+                                        "type": "string"
+                                    },
+                                    "baseQuery": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "sampleQueries": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "query": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "dataTypes": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "lastDataReceivedQuery": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "connectivityCriteria": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "type": {
+                                        "enum": [
+                                            "HasDataConnectors"
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "permissions": {
+                            "properties": {
+                                "resourceProvider": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "provider": {
+                                                "type": "string"
+                                            },
+                                            "permissionsDisplayText": {
+                                                "type": "string"
+                                            },
+                                            "providerDisplayName": {
+                                                "type": "string"
+                                            },
+                                            "scope": {
+                                                "type": "string"
+                                            },
+                                            "requiredPermissions": {
+                                                "properties": {
+                                                    "write": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "read": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "delete": {
+                                                        "type": "boolean"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "customs": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "instructions": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/instructionStep"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "$defs": {
+        "instructionStep": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "Label",
+                        "Textbox",
+                        "OAuthForm"
+                    ]
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "parameters": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "instructions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/instructionStep"
+                    }
+                }
+            }
+        }
+    }
+}
